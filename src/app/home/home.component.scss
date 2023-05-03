@@ -1,0 +1,47 @@
+@import '../..//assets/scss/variables';
+@import '../..//assets/scss/base';
+@import '../..//assets/scss/mixins';
+
+.base-module{
+    .banner{
+        background-color: $color-primary;
+        height: 330px;
+        color: $color-contrasting;
+        letter-spacing: 1px;
+        padding-top: $spacer-4;
+    }
+    .heading{
+        font-size: $font-xl;
+        padding: $spacer-md $spacer-0;
+        font-weight: 700;
+        width: 80%;
+        margin: auto;
+    }
+    .banner-text{
+        font-size: $font-sm;
+        width: 80%;
+        margin: auto;
+    }
+    .chart-base{
+        width: 60%;
+        overflow: auto;
+        margin:-150px auto;
+        background-color: $color-white;
+        border-radius: 20px;
+        padding: $spacer-4;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@include tablet{
+    .base-module{
+        .chart-base{
+            width: 90%;
+        }
+    }
+}
