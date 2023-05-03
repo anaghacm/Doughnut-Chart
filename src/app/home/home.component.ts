@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
     { name: 'D', value: 14, color: '#7326ab', percentage:0 }
   ]
 
+  public sumData:number=0;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -22,8 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   getPercentage() {
-    let total = 0;
-    this.chartData.forEach((a) => { return total += a.value })
-    this.chartData.map((a)=>{a.percentage=Math.floor((a.value/total)*100)})
+    this.chartData.forEach((a) => { return this.sumData += a.value })
+    this.chartData.map((a)=>{a.percentage=Math.floor((a.value/this.sumData)*100)})
   }
 }

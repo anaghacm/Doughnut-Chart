@@ -10,6 +10,7 @@ import * as d3 from 'd3';
 export class DoughnutChartComponent implements OnInit {
 
   @Input() chartData!: DoughnutData[];
+  @Input() sumData!: number;
 
   private width: number = 400;
   private height: number = 300;
@@ -29,9 +30,19 @@ export class DoughnutChartComponent implements OnInit {
       .append('svg')
       .attr('width', this.width)
       .attr('height', this.height);
+
   }
 
   drawChart() {
+    //Set middle value 
+    this.svg.append("text")
+      .attr("text-anchor", "middle")
+      .attr('fill', '#000')
+      .attr('transform', 'translate(200,155)')
+      .text(this.sumData)
+      .attr('font-size', '24px')
+      .style('font-weight', 900);
+
     //Set colors
     this.colors = d3.scaleOrdinal()
       .domain(this.chartData.map((d) => d.value.toString()))
